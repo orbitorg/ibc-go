@@ -595,7 +595,7 @@ func (suite *TransferTestSuite) TestPacketDataUnmarshalerInterface() {
 		suite.Run(tc.name, func() {
 			tc.malleate()
 
-			packetData, err := transfer.IBCModule{}.UnmarshalPacketData(data)
+			packetData, err := transfer.IBCModule{}.UnmarshalPacketData(suite.chainA.GetContext(), "", "", data)
 
 			if tc.expPass {
 				suite.Require().NoError(err)
